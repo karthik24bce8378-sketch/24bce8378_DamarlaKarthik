@@ -1,0 +1,68 @@
+USE vitcampus;
+
+SELECT * FROM products;
+
+DESC category;
+
+DROP TABLE products;
+
+CREATE TABLE products(
+	pid INT PRIMARY KEY,
+    pname VARCHAR(100) NOT NULL,
+    cid INT,
+    FOREIGN KEY (cid) REFERENCES category(cid) ON DELETE CASCADE
+);
+    
+DROP TABLE products;
+
+CREATE TABLE products(
+	pid INT PRIMARY KEY,
+    pname VARCHAR(100) NOT NULL,
+    cid INT,
+    FOREIGN KEY (cid) REFERENCES category(cid) ON UPDATE CASCADE
+);
+
+SELECT *FROM worker;
+
+SELECT department, SUM(salary) FROM worker 
+GROUP BY department;
+
+SELECT department, COUNT(department) FROM worker
+GROUP BY department 
+HAVING COUNT(department) >= 3
+ORDER BY department ASC;
+
+SELECT department, COUNT(department) FROM worker
+GROUP BY department 
+HAVING COUNT(department) < 3
+ORDER BY department ASC;
+
+SELECT department, SUM(salary) FROM worker
+GROUP BY department
+HAVING SUM(salary)<=300000;
+
+CREATE TABLE topper(id INT);
+
+INSERT INTO topper VALUES (2), (3);
+
+SELECT * FROM topper;
+
+SELECT department, SUM(salary) FROM worker
+GROUP BY department 
+ORDER BY SUM(salary) ASC 
+LIMIT 2;
+
+SELECT worker_id, first_name, salary FROM worker
+WHERE department = 'Admin'
+ORDER BY salary DESC 
+LIMIT 1 OFFSET 1;
+
+SELECT worker_id, first_name, department, salary
+FROM worker w1
+WHERE salary = (
+    SELECT DISTINCT salary
+    FROM worker w2
+    WHERE w2.department = w1.department
+    ORDER BY salary DESC
+    LIMIT 1 OFFSET 1
+);
