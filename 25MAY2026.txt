@@ -1,0 +1,73 @@
+use vit
+db.createCollection("Student")
+db.Student.drop()
+
+db.createCollection("Employee")
+db.Employee.insert({name:'Karthik', department:'CSE'})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a14586b803b4da2e6720eb3')
+  }
+}
+db.Employee.insert({name:'Telugu', department:'Language'})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a145892803b4da2e6720eb4')
+  }
+}
+db.Employee.find()
+{
+  _id: ObjectId('6a14586b803b4da2e6720eb3'),
+  name: 'Karthik',
+  department: 'CSE'
+}
+{
+  _id: ObjectId('6a145892803b4da2e6720eb4'),
+  name: 'Telugu',
+  department: 'Language'
+}
+
+db
+vit
+db.dropDatabase()
+{ ok: 1, dropped: 'vit' }
+db.Employee.find().pretty()
+db.Employee.find()
+show collections
+
+db.createCollection("Employee")
+{ ok: 1 }
+db.Employee.insert({name:'Karthik', department:'CSE'})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a145b12803b4da2e6720eb5')
+  }
+}
+db.Employee.insert({name:'Telugu', department:'Language'})
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('6a145b1a803b4da2e6720eb6')
+  }
+}
+db.Employee.find()
+{
+  _id: ObjectId('6a145b12803b4da2e6720eb5'),
+  name: 'Karthik',
+  department: 'CSE'
+}
+{
+  _id: ObjectId('6a145b1a803b4da2e6720eb6'),
+  name: 'Telugu',
+  department: 'Language'
+}
+db.Employee.find().pretty()
+{
+  _id: ObjectId('6a145b12803b4da2e6720eb5'),
+  name: 'Karthik',
+  department: 'CSE'
+}
