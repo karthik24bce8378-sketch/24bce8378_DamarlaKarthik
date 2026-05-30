@@ -1,0 +1,51 @@
+show databases;
+
+create database VITBranches;
+
+use VITBranches;
+
+create table CSE(
+  student_id int8,
+  student_name VARCHAR(50),
+  student_marks int1
+);
+
+create table ECE(
+  student_id int8,
+  student_name VARCHAR(50),
+  student_marks int1
+);
+
+create table MIS(
+  student_id in8,
+  student_name VARCHAR(50),
+  student_marks int1
+);
+
+SHOW tables;
+
+show tables from VITBranches;
+
+INSERT INTO CSE VALUES(151,'Arjun',88);
+INSERT INTO CSE VALUES(152,'Nikhil',91);
+INSERT INTO CSE VALUES(153,'Priya',79);
+INSERT INTO CSE VALUES(154,'Kiran',85);
+INSERT INTO CSE VALUES(155,'Sneha',96);
+
+SELECT * FROM CSE;
+
+INSERT INTO ECE VALUES(225,'Harsha',82);
+INSERT INTO ECE VALUES(226,'Meghana',94);
+INSERT INTO ECE VALUES(227,'Vivek',87);
+INSERT INTO ECE VALUES(228,'Ananya',90);
+INSERT INTO ECE VALUES(229,'Rohit',98);
+
+SELECT * FROM ECE;
+
+INSERT INTO MIS VALUES(341,'Keerthi',93);
+INSERT INTO MIS VALUES(342,'Sai Teja',89);
+INSERT INTO MIS VALUES(343,'Pooja',84);
+INSERT INTO MIS VALUES(344,'Rahul',97);
+INSERT INTO MIS VALUES(345,'Deepika',92);
+
+SELECT * FROM MIS;
