@@ -1,0 +1,67 @@
+MySQL WORKBENCH CODE :
+
+SHOW DATABASES;
+
+USE vitcampus;
+
+CREATE TABLE students(
+id INT PRIMARY KEY,
+Fname VARCHAR(10) NOT NULL,
+marks INT );
+
+INSERT INTO students VALUES (101, 'karthik', 93);
+INSERT INTO students VALUES (102, 'aarthi', 87);
+INSERT INTO students VALUES (105, 'shiva', 99);
+
+SELECT * FROM students;
+
+
+
+
+ECLIPSE - mongoDB\src\HelloWorld.java :
+
+package mongoDB;
+
+import java.sql.*;
+public class HelloWorld {
+
+    public static void main(String[] args) {
+
+        try {  
+            // 1. Register the Driver
+            Class.forName("com.mysql.cj.jdbc.Driver");  
+            
+            // 2. Connect to the DB (Changed 'test' to 'vit campus')
+            // Ensure your MySQL user name and password are "root" and "root"
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/vitcampus", "root", "root");
+            
+            // 3. Create Statement
+            Statement stmt = con.createStatement();  
+            
+            // 4. Execute Query (Changed 'student' to 'students')
+            ResultSet rs = stmt.executeQuery("select * from students");  
+            
+            // 5. Print Results
+            while(rs.next()) {  
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getInt(3));
+            }
+            
+            con.close();  
+            
+        } catch(Exception e) {
+            // It is highly recommended to print the actual error message while testing
+            // so you know exactly what failed (e.g., wrong password, missing jar)
+            System.out.println("Connection failed!");
+            e.printStackTrace();
+        }  
+    }
+}
+
+
+
+
+ECLIPSE CONSOLE OUTPUT :
+
+101  karthik  93
+102  aarthi  87
+105  shiva  99
